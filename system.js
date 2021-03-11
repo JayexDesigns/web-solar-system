@@ -169,10 +169,6 @@ class Planet {
     }
 }
 
-function randomNumber(min, max) {
-    return Math.random() * (max - min) + min;
-}
-
 function createPlanet(event) {
     event.preventDefault();
     mouse.x = ortCamera.position.x + ((event.clientX/window.innerWidth) * (window.innerWidth/90) * 2 - window.innerWidth/90);
@@ -181,7 +177,8 @@ function createPlanet(event) {
     let randomNum = Math.random();
     let mass = randomNum*(10000000-100000)+100000;
     let radius = randomNum*(0.3-0.05)+0.05;
-    let planet = new Planet(mouse.x, mouse.y, 0, 0, mass, radius, 0x7b00ff);
+    let color = Math.random() * (16777215-0)+0;
+    let planet = new Planet(mouse.x, mouse.y, 0, 0, mass, radius, color);
 }
 
 document.body.addEventListener('click', createPlanet);
