@@ -49,7 +49,10 @@ window.addEventListener('resize', () => {
     ortCamera.top = window.innerHeight/90;
     ortCamera.bottom = -window.innerHeight/90;
     ortCamera.updateProjectionMatrix();
-})
+});
+
+//Mouse
+var mouse = new THREE.Vector2();
 
 
 
@@ -154,6 +157,16 @@ class Planet {
         }
     }
 }
+
+function createPlanet(event) {
+    event.preventDefault();
+    mouse.x = ortCamera.position.x + ((event.clientX/window.innerWidth) * (window.innerWidth/90) * 2 - window.innerWidth/90);
+    mouse.y = ortCamera.position.z + ((event.clientY/window.innerHeight) * (window.innerHeight/90) * 2 - window.innerHeight/90);
+
+    var planet = new Planet(mouse.x, mouse.y, 0, 0, 100000, 0.2, 0x7b00ff);
+}
+
+document.body.addEventListener('click', createPlanet);
 
 var sun = new Planet(0, 0, 0, 0, 100000000, 1, 0xffb300);
 var venus = new Planet (-4, 0, 0, 0.08, 100000, 0.1, 0x00ffa6);
