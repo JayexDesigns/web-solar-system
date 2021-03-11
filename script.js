@@ -85,8 +85,23 @@ class Vector2D {
         }
     }
 
+    div(num) {
+        let x = this.x/num;
+        let y = this.y/num;
+        return new Vector2D(x, y);
+    }
+
     abs() {
         return Math.sqrt(this.x**2 + this.y**2);
+    }
+
+    dist(vector) {
+        let vec = this.sub(vector);
+        return vec.abs(vec);
+    }
+
+    norm() {
+        return new Vector2D(this.x/this.abs(), this.y/this.abs());
     }
 }
 
@@ -95,12 +110,15 @@ class Vector2D {
 //Class Planet
 class Planet {
     static planets = [];
+    static grav = 6.674e-11;
+    static time = 0.01;
 
     constructor(posX, posY, vel0X, vel0Y, mass, radius, color, still=false) {
         this.pos = new Vector2D(posX, posY);
 
         if (!still) {
             this.vel0 = new Vector2D(vel0X, vel0Y);
+            this.vel = this.vel0;
         }
 
         this.mass = mass;
@@ -117,19 +135,30 @@ class Planet {
         scene.add(this.planet);
     }
 
+    updateVelocity() {
+        if (!this.still) {
+            for (let i = 0; i < Planet.planets.length; ++i) {
+                if (Planet.planets[i] != this) {
+                    let forceDir = (Planet.planets[i].pos.sub(this.pos)).norm();
+                    let force = forceDir.mul((Planet.grav * this.mass * Planet.planets[i].mass) / (this.pos.dist(Planet.planets[i].pos)));
+                    let acc = force.div(this.mass);
+                    this.vel = this.vel.add(acc);
+                }
+            }
+        }
+    }
+
     updatePosition() {
         if (!this.still) {
-            this.pos.x += 0.1;
-            this.pos.y += 0.1;
+            this.pos = this.pos.add(this.vel);
             this.planet.position.set(this.pos.x, 0, this.pos.y);
         }
     }
 }
 
-var sun = new Planet(0, 0, 0, 0, 1, 1, 0xfebe40, true);
-var earth = new Planet (-4, 0, 2, 2, 0.1, 0.1, 0x00ccff);
-var earth2 = new Planet (4, 0, 1, 1, 0.1, 0.1, 0x00ffcc);
-var earth3 = new Planet (2, 0, 3, 3, 0.1, 0.1, 0x7b00ff);
+var sun = new Planet(0, 0, 0, 0, 100000000, 1, 0xfebe40, true);
+var earth = new Planet (-4, 0, 0, 0.05, 1000000, 0.1, 0x00ccff);
+var mars = new Planet (-6, 0, 0, 0.06, 1000000, 0.1, 0x00ffcc);
 
 
 
@@ -138,8 +167,11 @@ var render = function() {
     requestAnimationFrame(render);
 
     for (let i=0; i < Planet.planets.length; ++i) {
+        Planet.planets[i].updateVelocity();
         Planet.planets[i].updatePosition();
     }
+    
+    Planet.time+=0.01;
 
     renderer.render(scene, ortCamera);
 }
