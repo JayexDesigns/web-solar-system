@@ -157,8 +157,9 @@ class Planet {
 }
 
 var sun = new Planet(0, 0, 0, 0, 100000000, 1, 0xffb300, true);
-var earth = new Planet (-4, 0, 0, 0.05, 1000000, 0.1, 0x00ccff);
-var mars = new Planet (-6, 0, 0, 0.06, 1000000, 0.1, 0x00ffa6);
+var venus = new Planet (-4, 0, 0, 0.05, 1000000, 0.1, 0x00ffa6);
+var earth = new Planet (-6, 0, 0, 0.06, 1000000, 0.1, 0x00ccff);
+var mars = new Planet (-8, 0, 0, 0.065, 1000000, 0.1, 0xf44336);
 
 
 
