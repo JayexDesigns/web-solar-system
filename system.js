@@ -111,7 +111,6 @@ class Vector2D {
 class Planet {
     static planets = [];
     static grav = 6.674e-11;
-    static time = 0.01;
 
     constructor(posX, posY, vel0X, vel0Y, mass, radius, color, still=false) {
         this.pos = new Vector2D(posX, posY);
@@ -156,10 +155,10 @@ class Planet {
     }
 }
 
-var sun = new Planet(0, 0, 0, 0, 100000000, 1, 0xffb300, true);
-var venus = new Planet (-4, 0, 0, 0.05, 1000000, 0.1, 0x00ffa6);
-var earth = new Planet (-6, 0, 0, 0.06, 1000000, 0.1, 0x00ccff);
-var mars = new Planet (-8, 0, 0, 0.065, 1000000, 0.1, 0xf44336);
+var sun = new Planet(0, 0, 0, 0, 100000000, 1, 0xffb300);
+var venus = new Planet (-4, 0, 0, 0.08, 100000, 0.1, 0x00ffa6);
+var earth = new Planet (-6, 0, 0, 0.085, 100000, 0.1, 0x00ccff);
+var mars = new Planet (-8, 0, 0, 0.087, 100000, 0.1, 0xf44336);
 
 
 
@@ -172,7 +171,7 @@ var render = function() {
         Planet.planets[i].updatePosition();
     }
     
-    Planet.time+=0.01;
+    ortCamera.position.set(sun.pos.x, 15, sun.pos.y);
 
     renderer.render(scene, ortCamera);
 }
