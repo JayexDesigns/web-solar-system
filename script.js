@@ -1,7 +1,7 @@
 //Scene
 var scene = new THREE.Scene();
-scene.background = new THREE.Color(0x1a1a1a);
-scene.fog = new THREE.Fog(0x1a1a1a, 3, 50);
+scene.background = new THREE.Color(0x09061b);
+scene.fog = new THREE.Fog(0x09061b, 3, 50);
 
 
 
@@ -156,9 +156,9 @@ class Planet {
     }
 }
 
-var sun = new Planet(0, 0, 0, 0, 100000000, 1, 0xfebe40, true);
+var sun = new Planet(0, 0, 0, 0, 100000000, 1, 0xffb300, true);
 var earth = new Planet (-4, 0, 0, 0.05, 1000000, 0.1, 0x00ccff);
-var mars = new Planet (-6, 0, 0, 0.06, 1000000, 0.1, 0x00ffcc);
+var mars = new Planet (-6, 0, 0, 0.06, 1000000, 0.1, 0x00ffa6);
 
 
 
