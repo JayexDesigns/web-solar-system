@@ -106,6 +106,12 @@ class Vector2D {
     norm() {
         return new Vector2D(this.x/this.abs(), this.y/this.abs());
     }
+
+    max(num) {
+        let x = num * this.x/this.abs();
+        let y = num * this.y/this.abs();
+        return new Vector2D(x, y);
+    }
 }
 
 
@@ -114,6 +120,8 @@ class Vector2D {
 class Planet {
     static planets = [];
     static grav = 6.674e-11;
+    static velCap = true;
+    static velCapVal = 0.25;
 
     constructor(posX, posY, vel0X, vel0Y, mass, radius, color, still=false) {
         this.pos = new Vector2D(posX, posY);
@@ -145,6 +153,9 @@ class Planet {
                     let force = forceDir.mul((Planet.grav * this.mass * Planet.planets[i].mass) / (this.pos.dist(Planet.planets[i].pos)));
                     let acc = force.div(this.mass);
                     this.vel = this.vel.add(acc);
+                    if (Planet.velCap && this.vel.abs() > Planet.velCapVal) {
+                        this.vel = this.vel.max(Planet.velCapVal - 0.001);
+                    }
                 }
             }
         }
@@ -158,20 +169,27 @@ class Planet {
     }
 }
 
+function randomNumber(min, max) {
+    return Math.random() * (max - min) + min;
+}
+
 function createPlanet(event) {
     event.preventDefault();
     mouse.x = ortCamera.position.x + ((event.clientX/window.innerWidth) * (window.innerWidth/90) * 2 - window.innerWidth/90);
     mouse.y = ortCamera.position.z + ((event.clientY/window.innerHeight) * (window.innerHeight/90) * 2 - window.innerHeight/90);
 
-    var planet = new Planet(mouse.x, mouse.y, 0, 0, 100000, 0.2, 0x7b00ff);
+    let randomNum = Math.random();
+    let mass = randomNum*(10000000-100000)+100000;
+    let radius = randomNum*(0.3-0.05)+0.05;
+    let planet = new Planet(mouse.x, mouse.y, 0, 0, mass, radius, 0x7b00ff);
 }
 
 document.body.addEventListener('click', createPlanet);
 
 var sun = new Planet(0, 0, 0, 0, 100000000, 1, 0xffb300);
-var venus = new Planet (-4, 0, 0, 0.08, 100000, 0.1, 0x00ffa6);
-var earth = new Planet (-6, 0, 0, 0.085, 100000, 0.1, 0x00ccff);
-var mars = new Planet (-8, 0, 0, 0.087, 100000, 0.1, 0xf44336);
+var venus = new Planet (-4, 0, 0, 0.08, 1000000, 0.1, 0x00ffa6);
+var earth = new Planet (-6, 0, 0, 0.085, 1000000, 0.1, 0x00ccff);
+var mars = new Planet (-8, 0, 0, 0.087, 1000000, 0.1, 0xf44336);
 
 
 
