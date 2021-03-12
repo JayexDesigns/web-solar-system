@@ -1,7 +1,5 @@
-var input = document.getElementById("velInput");
-var butt = document.getElementById("setButton");
+var dropButton = document.getElementById("dropdown");
 
-butt.addEventListener('click', () => {
-    earth.vel = earth.vel.mul(input.value);
-    input.value = "";
+dropButton.addEventListener('click', () => {
+    console.log("WIP");
 });
