@@ -17,6 +17,7 @@ body {
 }
 
 svg {
+    display: none;
     position: absolute;
     top: 5%;
     left: 50%;
