@@ -181,7 +181,7 @@ function createPlanet(event) {
     let planet = new Planet(mouse.x, mouse.y, 0, 0, mass, radius, color);
 }
 
-document.body.addEventListener('click', createPlanet);
+document.getElementsByTagName("canvas")[0].addEventListener('click', createPlanet);
 
 var sun = new Planet(0, 0, 0, 0, 100000000, 1, 0xffb300);
 var venus = new Planet (-4, 0, 0, 0.08, 1000000, 0.1, 0x00ffa6);

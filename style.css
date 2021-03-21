@@ -3,6 +3,21 @@ body {
     height: 100vh;
 }
 
+#github img {
+    height: 5vh;
+    position: absolute;
+    padding: 2vh;
+    opacity: 0.2;
+    z-index: 1;
+    transition: opacity .25s ease-in-out, color .25s ease-in-out;
+    -moz-transition: opacity .25s ease-in-out, color .25s ease-in-out;
+    -webkit-transition: opacity .25s ease-in-out, color .25s ease-in-out;
+}
+
+#github img:hover {
+    opacity: 0.5;
+}
+
 #demo {
     position: absolute;
     top: 70%;
@@ -13,7 +28,8 @@ body {
     font-family: 'Open Sans', sans-serif;
     font-weight: 700;
     text-align: center;
-    z-index: -1;
+    cursor: default;
+    z-index: 1;
 }
 
 svg {
@@ -49,5 +65,5 @@ input[type=number] {
 canvas {
     position: absolute;
     display: block;
-    z-index: -2;
+    z-index: 0;
 }
