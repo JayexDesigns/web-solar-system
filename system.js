@@ -1,7 +1,6 @@
 //Scene
 var scene = new THREE.Scene();
-scene.background = new THREE.Color(0x09061b);
-scene.fog = new THREE.Fog(0x09061b, 3, 50);
+// scene.background = new THREE.Color(0x09061b);
 
 
 
@@ -34,7 +33,8 @@ ortCamera.lookAt(scene.position);
 
 
 //Renderer
-var renderer = new THREE.WebGLRenderer({antialias: true});
+var renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
+renderer.setClearColor(0x000000, 0);
 renderer.setSize(window.innerWidth,window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
@@ -123,13 +123,15 @@ class Planet {
     static velCap = true;
     static velCapVal = 0.25;
 
-    constructor(posX, posY, vel0X, vel0Y, mass, radius, color, still=false) {
+    constructor(name, posX, posY, vel0X, vel0Y, mass, radius, color, still=false) {
         this.pos = new Vector2D(posX, posY);
 
         if (!still) {
             this.vel0 = new Vector2D(vel0X, vel0Y);
             this.vel = this.vel0;
         }
+
+        this.name = name;
 
         this.mass = mass;
         this.radius = radius;
@@ -178,15 +180,15 @@ function createPlanet(event) {
     let mass = randomNum*(10000000-100000)+100000;
     let radius = randomNum*(0.3-0.05)+0.05;
     let color = Math.random() * (16777215-0)+0;
-    let planet = new Planet(mouse.x, mouse.y, 0, 0, mass, radius, color);
+    let planet = new Planet("test", mouse.x, mouse.y, 0, 0, mass, radius, color);
 }
 
 document.getElementsByTagName("canvas")[0].addEventListener('click', createPlanet);
 
-var sun = new Planet(0, 0, 0, 0, 100000000, 1, 0xffb300);
-var venus = new Planet (-4, 0, 0, 0.08, 1000000, 0.1, 0x00ffa6);
-var earth = new Planet (-6, 0, 0, 0.085, 1000000, 0.1, 0x00ccff);
-var mars = new Planet (-8, 0, 0, 0.087, 1000000, 0.1, 0xf44336);
+var sun = new Planet("sun", 0, 0, 0, 0, 100000000, 1, 0xffb300);
+var venus = new Planet ("venus", -4, 0, 0, 0.08, 1000000, 0.1, 0x00ffa6);
+var earth = new Planet ("earth", -6, 0, 0, 0.085, 1000000, 0.1, 0x00ccff);
+var mars = new Planet ("mars", -8, 0, 0, 0.087, 1000000, 0.1, 0xf44336);
 
 
 

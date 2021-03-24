@@ -1,6 +1,7 @@
 body {
     margin: 0;
     height: 100vh;
+    background-color: #09061b;
 }
 
 #github img {
@@ -29,7 +30,7 @@ body {
     font-weight: 700;
     text-align: center;
     cursor: default;
-    z-index: 1;
+    z-index: -1;
 }
 
 svg {
@@ -54,12 +55,12 @@ svg:hover {
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 input[type=number] {
-  -moz-appearance: textfield;
+    -moz-appearance: textfield;
 }
 
 canvas {
