@@ -1,8 +1,11 @@
 body {
+    font-family: 'Open Sans', sans-serif;
     margin: 0;
     height: 100vh;
     background-color: #09061b;
 }
+
+
 
 #github img {
     height: 5vh;
@@ -19,6 +22,8 @@ body {
     opacity: 0.5;
 }
 
+
+
 #demo {
     position: absolute;
     top: 70%;
@@ -26,15 +31,124 @@ body {
     transform: translate(-50%, -50%);
     color: rgba(0, 0, 0, 0.2);
     font-size: 7vh;
-    font-family: 'Open Sans', sans-serif;
     font-weight: 700;
     text-align: center;
     cursor: default;
     z-index: -1;
 }
 
+
+
+#menu {
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    padding: 6vh 2vw;
+    background-color: #ffffff;
+    border-radius: 5vh;
+    z-index: 2;
+    justify-content: center;
+    align-items: center;
+    transition: top 0.75s ease-in-out;
+    -moz-transition: top 0.75s ease-in-out;
+    -webkit-transition: top 0.75s ease-in-out;
+}
+
+#menu > div {
+    margin: 0 3vh;
+    padding: 3vh;
+    cursor: pointer;
+    border-radius: 2vh;
+    background-color: #ffffff;
+    transition: box-shadow .15s ease-in-out;
+    -moz-transition: box-shadow .15s ease-in-out;
+    -webkit-transition: box-shadow .15s ease-in-out;
+    box-shadow: 0 0 3vh #d4d4d4;
+}
+
+#menu > div:hover {
+    box-shadow: 0 0 1vh #d4d4d4;
+}
+
+#menu p {
+    text-align: center;
+    font-weight: 700;
+    font-size: 3vh;
+}
+
+#menu img {
+    width: 20vw;
+}
+
+
+
+#createMenu, #browseMenu {
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 6vh;
+    background-color: #ffffff;
+    border-radius: 5vh;
+    min-width: 250px;
+    z-index: 2;
+    transition: top 0.75s ease-in-out;
+    -moz-transition: top 0.75s ease-in-out;
+    -webkit-transition: top 0.75s ease-in-out;
+}
+
+#createMenu > h1 {
+    margin: 0 0 4vh 0;
+}
+
+#createMenu > section {
+    margin: 2vh 0 0 0;
+}
+
+#createMenu > section input {
+    text-align: center;
+    margin-left: 3vh;
+    float: right;
+    border: 0.15vh solid #000000;
+    font-size: 1.5vh;
+    padding: 0.2vh;
+}
+
+#createName input, #createMass input, #createRadius input, #createColor input {
+    width: 20vh;
+}
+
+#createPosition input, #createVelocity input {
+    width: 8vh;
+}
+
+#createPlanet {
+    float: none;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    margin: 4vh 0 0 0;
+    display: inline-block;
+    background-color: #ffffff;
+    font-size: 1.7vh;
+    border: none;
+    padding: .9vh 1.5vh;
+    border-radius: 3vh;
+    transition: box-shadow .15s ease-in-out;
+    -moz-transition: box-shadow .15s ease-in-out;
+    -webkit-transition: box-shadow .15s ease-in-out;
+    box-shadow: 0 0 2vh #cacaca;
+}
+
+#createPlanet:hover {
+    box-shadow: 0 0 1vh #cacaca;
+}
+
+
+
 svg {
-    /* display: none; */
     position: absolute;
     top: 5%;
     left: 50%;
@@ -54,6 +168,8 @@ svg:hover {
     opacity: 1;
 }
 
+
+
 canvas {
     position: absolute;
     display: block;
@@ -69,4 +185,15 @@ canvas {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+/* No Arrows On Input */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
 }
