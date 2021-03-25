@@ -66,6 +66,15 @@ createPlanet.addEventListener('click', () => {
         }, 2000);
     }
     else {
+        for (let i of Planet.planets) {
+            if (i.name == name) {
+                document.getElementsByTagName("h1")[0].innerHTML = "That name<br>already exists";
+                setTimeout(() => {
+                    document.getElementsByTagName("h1")[0].innerText = "Create Planet";
+                }, 2000);
+                return;
+            }
+        }
         document.getElementById("createName").childNodes[1].value = "";
         document.getElementById("createMenu").style.top = "-50%";
         menuDisplayed = false;
