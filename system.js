@@ -51,9 +51,6 @@ window.addEventListener('resize', () => {
     ortCamera.updateProjectionMatrix();
 });
 
-//Mouse
-var mouse = new THREE.Vector2();
-
 
 
 //Class Vector2D
@@ -171,20 +168,9 @@ class Planet {
     }
 }
 
-function createPlanet(event) {
-    event.preventDefault();
-    mouse.x = ortCamera.position.x + ((event.clientX/window.innerWidth) * (window.innerWidth/90) * 2 - window.innerWidth/90);
-    mouse.y = ortCamera.position.z + ((event.clientY/window.innerHeight) * (window.innerHeight/90) * 2 - window.innerHeight/90);
 
-    let randomNum = Math.random();
-    let mass = randomNum*(10000000-100000)+100000;
-    let radius = randomNum*(0.3-0.05)+0.05;
-    let color = Math.random() * (16777215-0)+0;
-    let planet = new Planet("test", mouse.x, mouse.y, 0, 0, mass, radius, color);
-}
 
-document.getElementsByTagName("canvas")[0].addEventListener('click', createPlanet);
-
+//Default Planets
 var sun = new Planet("sun", 0, 0, 0, 0, 100000000, 1, 0xffb300);
 var venus = new Planet ("venus", -4, 0, 0, 0.08, 1000000, 0.1, 0x00ffa6);
 var earth = new Planet ("earth", -6, 0, 0, 0.085, 1000000, 0.1, 0x00ccff);
