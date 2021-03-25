@@ -4,13 +4,13 @@ var menuDisplayed = false;
 dropButton.addEventListener('click', () => {
     let menu = document.getElementById("menu");
     if (menuDisplayed) {
-        document.getElementById("menu").style.top = "-50%";
+        menu.style.top = "-50%";
         document.getElementById("createMenu").style.top = "-50%";
         document.getElementById("browseMenu").style.top = "-50%";
         menuDisplayed = false;
     }
     else if (!menuDisplayed) {
-        document.getElementById("menu").style.top = "50%";
+        menu.style.top = "50%";
         menuDisplayed = true;
     }
 });
