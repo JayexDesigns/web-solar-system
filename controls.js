@@ -14,7 +14,11 @@ const controller = {
                 }
             }
             if (valid) {
+                console.log("got name");
                 return name;
+            }
+            else {
+                name = names[Math.floor(Math.random() * (names.length-1))];
             }
         }
     },
@@ -43,11 +47,14 @@ const controller = {
     },
 
     createPlanet: () => {
+        console.log("creating planet");
         let randomNum = Math.random();
         let mass = randomNum*(10000000-100000)+100000;
         let radius = randomNum*(0.3-0.05)+0.05;
         let color = Math.random() * (16777215-0)+0;
+        console.log("control point")
         let planet = new Planet(controller.randomName(Planet.planets), controller.pos0.x, controller.pos0.y, controller.vel0.x, controller.vel0.y, mass, radius, color);
+        console.log("planet created");
     }
 }
 
