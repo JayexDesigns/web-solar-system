@@ -29,11 +29,17 @@ const controller = {
         event.preventDefault();
         let x = ortCamera.position.x + ((event.clientX/window.innerWidth) * (window.innerWidth/90) * 2 - window.innerWidth/90);
         let y = ortCamera.position.z + ((event.clientY/window.innerHeight) * (window.innerHeight/90) * 2 - window.innerHeight/90);
-        let pos = new Vector2D(x, y);
-        controller.vel0 = pos.sub(controller.pos0).norm();
-        controller.vel0.x *= 0.1;
-        controller.vel0.y *= 0.1;
-        controller.createPlanet();
+        if (x == controller.pos0.x && y == controller.pos0.y) {
+            controller.vel0.x = 0;
+            controller.vel0.y = 0;
+        }
+        else {
+            let pos = new Vector2D(x, y);
+            controller.vel0 = pos.sub(controller.pos0).norm();
+            controller.vel0.x *= 0.1;
+            controller.vel0.y *= 0.1;
+            controller.createPlanet();
+        }
     },
 
     createPlanet: () => {
