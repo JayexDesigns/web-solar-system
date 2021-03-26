@@ -12,7 +12,7 @@
 <body>
     <a href="https://github.com/JayexDesigns/web-solar-system" target="_blank" id="github" class="unselectable"><img src="img/github.png" alt=""></a>
 
-    <p unselectable="on" onselectstart="return false;" onmousedown="return false;" id="demo" class="unselectable">THIS IS A DEMO</p>
+    <p unselectable="on" onselectstart="return false;" onmousedown="return false;" id="demo" class="unselectable">MADE BY<br>JAYEX DESIGNS</p>
 
     <div id="menu" class="unselectable">
         <div id="createButton"><p>Create A Planet</p><img src="img/createPlanet.png" alt="Something Went Wrong"></div>
@@ -22,8 +22,20 @@
     <div id="createMenu">
         <h1>Create Planet</h1>
         <section id="createName"><label>Name:</label><input type="text"></section>
-        <section id="createPosition"><label>Position:</label><input id="createPosY" type="number" placeholder="Y" value="0"><input id="createPosX" type="number" placeholder="X" value="5"></section>
-        <section id="createVelocity"><label>Velocity:</label><input id="createVelY" type="number" placeholder="Y" value="-8"><input id="createVelX" type="number" placeholder="X" value="0"></section>
+        <section id="createPosition">
+            <label>Position:</label>
+            <div>
+                <input id="createPosX" type="number" placeholder="X" value="5">
+                <input id="createPosY" type="number" placeholder="Y" value="0">
+            </div>
+        </section>
+        <section id="createVelocity">
+            <label>Velocity:</label>
+            <div>
+                <input id="createVelX" type="number" placeholder="X" value="0">
+                <input id="createVelY" type="number" placeholder="Y" value="-8">
+            </div>
+        </section>
         <section id="createMass"><label>Mass:</label><input type="number" value="1000"></section>
         <section id="createRadius"><label>Radius:</label><input type="number" value="1"></section>
         <section id="createColor"><label>Color:</label><input type="text"></section>
@@ -34,7 +46,7 @@
     <svg width=80 height=30 id="dropdown">
         <polyline points="5,5 40,25 75,5" stroke-linecap="round"/>
     </svg>
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r124/three.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
 

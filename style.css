@@ -107,17 +107,21 @@ body {
     margin: 2vh 0 0 0;
 }
 
-#createMenu > section input {
+#createMenu > section > input, #createPosition > div > input, #createVelocity > div > input {
     text-align: center;
-    margin-left: 3vh;
-    float: right;
+    margin-left: 2.7vh;
     border: 0.15vh solid #000000;
     font-size: 1.5vh;
     padding: 0.2vh;
 }
 
 #createName input, #createMass input, #createRadius input, #createColor input {
+    float: right;
     width: 20vh;
+}
+
+#createPosition > div, #createVelocity > div {
+    float: right;
 }
 
 #createPosition input, #createVelocity input {
