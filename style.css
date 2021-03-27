@@ -112,7 +112,6 @@ body {
 
 #createMenu > section > input, #createPosition > div > input, #createVelocity > div > input {
     text-align: center;
-    margin-left: 2.7vh;
     border-radius: 5vh;
     border: none;
     box-shadow: 0 0 2vh #bebebe;
@@ -123,6 +122,7 @@ body {
 #createName input, #createMass input, #createRadius input, #createColor input {
     float: right;
     width: 20vh;
+    margin-left: 2.7vh;
 }
 
 #createPosition > div, #createVelocity > div {
@@ -131,6 +131,7 @@ body {
 
 #createPosition input, #createVelocity input {
     width: 8vh;
+    margin-left: 2.5vh;
 }
 
 #createPlanet {
@@ -155,6 +156,57 @@ body {
 #createPlanet:hover {
     transform: translate(-50%, 0) scale(1.1);
     box-shadow: 0 0 2vh #bebebe;
+}
+
+
+
+#browseMenu {
+    padding: 4vh 6vh;
+    max-height: 70vh;
+    overflow: auto;
+}
+
+#browseMenu > h1 {
+    margin: 0 0 4vh 0;
+    color: #1a1a1a;
+}
+
+#browseMenu > div {
+    padding: 0.5vh 3vh;
+    margin: 2vh 0;
+    min-width: 200px;
+    border-radius: 5vh;
+    box-shadow: 0 0 3vh #dddddd;
+}
+
+::-webkit-scrollbar { 
+    display: none; 
+}
+
+#browseMenu > div > p {
+    display: inline-block;
+    margin: 1vh 0;
+}
+
+.removePlanet {
+    float: right;
+    margin: 1vh 0;
+}
+
+.removePlanet button {
+    transform: scale(1);
+    background-color: #ffffff;
+    border: none;
+    cursor: pointer;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 2vh;
+    transition: transform .05s ease-in-out;
+    -moz-transition: transform .05s ease-in-out;
+    -webkit-transition: transform .05s ease-in-out;
+}
+
+.removePlanet button:hover {
+    transform: scale(1.15);
 }
 
 

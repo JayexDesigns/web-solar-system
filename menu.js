@@ -17,17 +17,18 @@ dropButton.addEventListener('click', () => {
 
 
 
-var createMenu = document.getElementById("createButton");
-var browseMenu = document.getElementById("browseButton");
+var createButton = document.getElementById("createButton");
+var browseButton = document.getElementById("browseButton");
 
-createMenu.addEventListener('click', () => {
+createButton.addEventListener('click', () => {
     setTimeout(() => {
         document.getElementById("createMenu").style.top = "50%";
     }, 150);
     document.getElementById("menu").style.top = "-50%";
 });
 
-browseMenu.addEventListener('click', () => {
+browseButton.addEventListener('click', () => {
+    makePlanetList();
     setTimeout(() => {
         document.getElementById("browseMenu").style.top = "50%";
     }, 150);
@@ -81,3 +82,38 @@ createPlanet.addEventListener('click', () => {
         let planet = new Planet(name, posX, posY, velX, velY, mass, radius, color);
     }
 });
+
+
+
+var actualPlanetList = [];
+
+function makePlanetList() {
+    let browseMenu = document.getElementById("browseMenu");
+    for (let planet of Planet.planets) {
+        if (planet.name != "Sun" && !actualPlanetList.includes(planet.name)) {
+            actualPlanetList.push(planet.name);
+            let planetDiv = document.createElement("div");
+
+            let planetName = document.createElement("p");
+            planetName.innerText = planet.name;
+            planetDiv.appendChild(planetName);
+
+            let optionsDiv = document.createElement("div");
+            optionsDiv.classList.add("removePlanet");
+            let removeButton = document.createElement("button");
+            removeButton.innerText = "X";
+            removeButton.addEventListener('click', () => {
+                planet.removePlanet();
+                for (let element of browseMenu.childNodes) {
+                    if (element.firstChild.innerText == planet.name) {
+                        element.remove();
+                    }
+                }
+            });
+            optionsDiv.appendChild(removeButton);
+            planetDiv.appendChild(optionsDiv);
+
+            browseMenu.appendChild(planetDiv);
+        }
+    }
+}

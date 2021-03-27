@@ -139,9 +139,19 @@ class Planet {
         this.material = new THREE.MeshBasicMaterial({color:this.color, wireframe: false});
         this.index = Planet.planets.length;
         this.planet = new THREE.Mesh(this.geometry, this.material);
+
         this.planet.position.set(this.pos.x, 0, this.pos.y);
-        Planet.planets[this.index] = this
+        Planet.planets[this.index] = this;
+
+        this.planet.name = this.name;
         scene.add(this.planet);
+
+        try {
+            makePlanetList();
+        }
+        catch {
+            return;
+        }
     }
 
     updateVelocity() {
@@ -164,6 +174,15 @@ class Planet {
         if (!this.still) {
             this.pos = this.pos.add(this.vel);
             this.planet.position.set(this.pos.x, 0, this.pos.y);
+        }
+    }
+
+    removePlanet() {
+        scene.remove(scene.getObjectByName(this.name));
+        for (let i = 0; i < Planet.planets.length; ++i) {
+            if (Planet.planets[i].name == this.name) {
+                Planet.planets.splice(i, 1);
+            }
         }
     }
 }
