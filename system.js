@@ -171,10 +171,10 @@ class Planet {
 
 
 //Default Planets
-var sun = new Planet("sun", 0, 0, 0, 0, 100000000, 1, 0xffb300);
-var venus = new Planet ("venus", -4, 0, 0, 0.08, 1000000, 0.1, 0x00ffa6);
-var earth = new Planet ("earth", -6, 0, 0, 0.085, 1000000, 0.1, 0x00ccff);
-var mars = new Planet ("mars", -8, 0, 0, 0.087, 1000000, 0.1, 0xf44336);
+var sun = new Planet("Sun", 0, 0, 0, 0, 100000000, 1, 0xffb300);
+var venus = new Planet ("Venus", -4, 0, 0, 0.08, 1000000, 0.1, 0x00ffa6);
+var earth = new Planet ("Earth", -6, 0, 0, 0.085, 1000000, 0.1, 0x00ccff);
+var mars = new Planet ("Mars", -8, 0, 0, 0.087, 1000000, 0.1, 0xf44336);
 
 
 
