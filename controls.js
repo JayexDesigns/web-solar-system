@@ -24,8 +24,8 @@ const controller = {
 
     firstPoint: (event) => {
         event.preventDefault();
-        controller.pos0.x = ortCamera.position.x + ((event.clientX/window.innerWidth) * (window.innerWidth/90) * 2 - window.innerWidth/90);
-        controller.pos0.y = ortCamera.position.z + ((event.clientY/window.innerHeight) * (window.innerHeight/90) * 2 - window.innerHeight/90);
+        controller.pos0.x = ((event.clientX/window.innerWidth) * (window.innerWidth/90) * 2 - window.innerWidth/90);
+        controller.pos0.y = ((event.clientY/window.innerHeight) * (window.innerHeight/90) * 2 - window.innerHeight/90);
     },
 
     secondPoint: (event) => {
@@ -38,6 +38,8 @@ const controller = {
         }
         else {
             let pos = new Vector2D(x, y);
+            controller.pos0.x += ortCamera.position.x;
+            controller.pos0.y += ortCamera.position.z;
             controller.vel0 = pos.sub(controller.pos0).mul(0.3);
             controller.vel0.x *= 0.1;
             controller.vel0.y *= 0.1;
@@ -50,7 +52,13 @@ const controller = {
         let mass = randomNum*(10000000-100000)+100000;
         let radius = randomNum*(0.3-0.05)+0.05;
         let color = Math.random() * (16777215-0)+0;
-        let planet = new Planet(controller.randomName(Planet.planets), controller.pos0.x, controller.pos0.y, controller.vel0.x, controller.vel0.y, mass, radius, color);
+        let planet = new Planet(
+            controller.randomName(Planet.planets),
+            controller.pos0.x,
+            controller.pos0.y,
+            controller.vel0.x,
+            controller.vel0.y,
+            mass, radius, color);
     }
 }
 
