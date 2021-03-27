@@ -38,7 +38,7 @@ const controller = {
         }
         else {
             let pos = new Vector2D(x, y);
-            controller.vel0 = pos.sub(controller.pos0).norm();
+            controller.vel0 = pos.sub(controller.pos0).mul(0.3);
             controller.vel0.x *= 0.1;
             controller.vel0.y *= 0.1;
             controller.createPlanet();
