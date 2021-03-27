@@ -402,5 +402,12 @@ const names = [
     'Zephyr',
     'Zephyros',
     'Zephyrus',
-    'Zeus'
+    'Zeus',
+
+    //Custom
+
+    'Niobio',
+    'Diana',
+    'Jayex',
+    'Rainster'
 ]
