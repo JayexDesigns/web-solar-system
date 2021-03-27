@@ -185,6 +185,33 @@ class Planet {
             }
         }
     }
+
+    collisionDetection() {
+        for (let i = 0; i < Planet.planets.length; ++i) {
+            if (Planet.planets[i] != this) {
+                if (this.pos.sub(Planet.planets[i].pos).abs() < this.radius + Planet.planets[i].radius) {
+                    if (this.mass < Planet.planets[i].mass) {
+                        Planet.planets[i].mass += this.mass;
+                        removePlanet(this);
+                    }
+                    else if (this.ass > Planet.planets[i].mass) {
+                        this.mass += Planet.planets[i].mass;
+                        removePlanet(Planet.planets[i]);
+                    }
+                    else {
+                        if (Math.random >= 0.5) {
+                            Planet.planets[i].mass += this.mass;
+                            removePlanet(this);
+                        }
+                        else {
+                            this.mass += Planet.planets[i].mass;
+                            removePlanet(Planet.planets[i]);
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 
@@ -204,6 +231,9 @@ var render = function() {
     for (let i=0; i < Planet.planets.length; ++i) {
         Planet.planets[i].updateVelocity();
         Planet.planets[i].updatePosition();
+        if (collisionSystem) {
+            Planet.planets[i].collisionDetection();
+        }
     }
     
     ortCamera.position.set(sun.pos.x, 15, sun.pos.y);

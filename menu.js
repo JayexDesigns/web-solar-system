@@ -103,17 +103,7 @@ function makePlanetList() {
             let removeButton = document.createElement("button");
             removeButton.innerText = "X";
             removeButton.addEventListener('click', () => {
-                planet.removePlanet();
-                for (let element of browseMenu.childNodes) {
-                    if (element.firstChild.innerText == planet.name) {
-                        element.remove();
-                    }
-                }
-                for (let name = 0; name < actualPlanetList.length; ++name) {
-                    if (planet.name == actualPlanetList[name]) {
-                        actualPlanetList.splice(name, 1);
-                    }
-                }
+                removePlanet(planet);
             });
             optionsDiv.appendChild(removeButton);
             planetDiv.appendChild(optionsDiv);
@@ -122,3 +112,21 @@ function makePlanetList() {
         }
     }
 }
+
+function removePlanet(planet) {
+    for (let element of document.getElementById("browseMenu").childNodes) {
+        if (element.firstChild.innerText == planet.name) {
+            element.remove();
+        }
+    }
+    for (let name = 0; name < actualPlanetList.length; ++name) {
+        if (planet.name == actualPlanetList[name]) {
+            actualPlanetList.splice(name, 1);
+        }
+    }
+    planet.removePlanet();
+}
+
+
+
+var collisionSystem = false;
