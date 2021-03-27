@@ -3,7 +3,7 @@ const controller = {
     vel0: new Vector2D(0, 0),
 
     randomName: (planets) => {
-        let name = names[Math.floor(Math.random() * (names.length-1))];
+        let name = names[Math.floor(Math.random() * (names.length))];
 
         while (true) {
             let valid = true;
@@ -17,7 +17,7 @@ const controller = {
                 return name;
             }
             else {
-                name = names[Math.floor(Math.random() * (names.length-1))];
+                name = names[Math.floor(Math.random() * (names.length))];
             }
         }
     },
