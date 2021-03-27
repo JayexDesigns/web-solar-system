@@ -48,7 +48,7 @@ createPlanet.addEventListener('click', () => {
     let mass = parseInt(document.getElementById("createMass").childNodes[1].value) * 1000;
     let radius = parseInt(document.getElementById("createRadius").childNodes[1].value) * 0.1;
     let color = parseInt(document.getElementById("createColor").childNodes[1].value, 16);
-    if (name == "" || isNaN(posX) || isNaN(posY) || isNaN(velX) || isNaN(velY) || isNaN(mass) || isNaN(radius)) {
+    if (name == "" || isNaN(posX) || isNaN(posY) || isNaN(velX) || isNaN(velY) || isNaN(mass) || isNaN(radius) || isNaN(color)) {
         document.getElementsByTagName("h1")[0].innerHTML = "You must fill<br>all fields";
         setTimeout(() => {
             document.getElementsByTagName("h1")[0].innerText = "Create Planet";
