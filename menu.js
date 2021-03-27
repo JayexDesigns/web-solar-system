@@ -109,6 +109,11 @@ function makePlanetList() {
                         element.remove();
                     }
                 }
+                for (let name = 0; name < actualPlanetList.length; ++name) {
+                    if (planet.name == actualPlanetList[name]) {
+                        actualPlanetList.splice(name, 1);
+                    }
+                }
             });
             optionsDiv.appendChild(removeButton);
             planetDiv.appendChild(optionsDiv);
