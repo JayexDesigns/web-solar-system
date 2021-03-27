@@ -57,19 +57,21 @@ body {
 }
 
 #menu > div {
+    transform: scale(1);
     margin: 0 3vh;
     padding: 3vh;
     cursor: pointer;
     border-radius: 2vh;
     background-color: #ffffff;
-    transition: box-shadow .15s ease-in-out;
-    -moz-transition: box-shadow .15s ease-in-out;
-    -webkit-transition: box-shadow .15s ease-in-out;
+    transition: box-shadow .15s ease-in-out, transform .15s ease-in-out;
+    -moz-transition: box-shadow .15s ease-in-out, transform .15s ease-in-out;
+    -webkit-transition: box-shadow .15s ease-in-out, transform .15s ease-in-out;
     box-shadow: 0 0 3vh #d4d4d4;
 }
 
 #menu > div:hover {
-    box-shadow: 0 0 1vh #d4d4d4;
+    transform: scale(1.05);
+    box-shadow: 0 0 3vh #c4c4c4;
 }
 
 #menu p {
@@ -110,9 +112,11 @@ body {
 #createMenu > section > input, #createPosition > div > input, #createVelocity > div > input {
     text-align: center;
     margin-left: 2.7vh;
-    border: 0.15vh solid #000000;
+    border-radius: 5vh;
+    border: none;
+    box-shadow: 0 0 2vh #bebebe;
     font-size: 1.5vh;
-    padding: 0.2vh;
+    padding: 0.5vh;
 }
 
 #createName input, #createMass input, #createRadius input, #createColor input {
@@ -132,22 +136,24 @@ body {
     float: none;
     position: relative;
     left: 50%;
-    transform: translate(-50%, 0);
+    transform: translate(-50%, 0) scale(1);
     margin: 4vh 0 0 0;
     display: inline-block;
+    cursor: pointer;
     background-color: #ffffff;
     font-size: 1.7vh;
     border: none;
-    padding: .9vh 1.5vh;
+    padding: .9vh 1.2vh;
     border-radius: 3vh;
-    transition: box-shadow .15s ease-in-out;
-    -moz-transition: box-shadow .15s ease-in-out;
-    -webkit-transition: box-shadow .15s ease-in-out;
+    transition: box-shadow .15s ease-in-out, transform .15s ease-in-out;
+    -moz-transition: box-shadow .15s ease-in-out, transform .15s ease-in-out;
+    -webkit-transition: box-shadow .15s ease-in-out, transform .15s ease-in-out;
     box-shadow: 0 0 2vh #cacaca;
 }
 
 #createPlanet:hover {
-    box-shadow: 0 0 1vh #cacaca;
+    transform: translate(-50%, 0) scale(1.1);
+    box-shadow: 0 0 2vh #bebebe;
 }
 
 
