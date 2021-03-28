@@ -2,6 +2,7 @@ const controller = {
     pos0: new Vector2D(0, 0),
     vel0: new Vector2D(0, 0),
 
+    //Gives A Random Name Of The Names List
     randomName: (planets) => {
         let name = names[Math.floor(Math.random() * (names.length))];
 
@@ -22,12 +23,14 @@ const controller = {
         }
     },
 
+    //When The User Clicks Sets The First Position
     firstPoint: (event) => {
         event.preventDefault();
         controller.pos0.x = ((event.clientX/window.innerWidth) * (window.innerWidth/90) * 2 - window.innerWidth/90);
         controller.pos0.y = ((event.clientY/window.innerHeight) * (window.innerHeight/90) * 2 - window.innerHeight/90);
     },
 
+    //When The User Releases The Click Sets The Second Point And Calculates The Velocity
     secondPoint: (event) => {
         event.preventDefault();
         let x = ortCamera.position.x + ((event.clientX/window.innerWidth) * (window.innerWidth/90) * 2 - window.innerWidth/90);
@@ -47,6 +50,7 @@ const controller = {
         }
     },
 
+    //Creates A Planet With Random Attributes (Not Including The Position And Velocity, Those Are Specified By The User)
     createPlanet: () => {
         let randomNum = Math.random();
         let mass = randomNum*(10000000-100000)+100000;

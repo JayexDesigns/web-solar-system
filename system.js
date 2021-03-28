@@ -1,6 +1,5 @@
 //Scene
 var scene = new THREE.Scene();
-// scene.background = new THREE.Color(0x09061b);
 
 
 
@@ -60,18 +59,21 @@ class Vector2D {
         this.y = y;
     }
 
+    //Adds A Vector To The Instance Vector
     add(vector) {
         let x = this.x + vector.x;
         let y = this.y + vector.y;
         return new Vector2D(x, y);
     }
 
+    //Subtracts A Vector To The Instance Vector
     sub(vector) {
         let x = this.x - vector.x;
         let y = this.y - vector.y;
         return new Vector2D(x, y);
     }
 
+    //Multiplies The Vector By A Scalar Or Another Vector
     mul(arg) {
         if (arg instanceof Vector2D) {
             let x = this.x * arg.x;
@@ -85,25 +87,30 @@ class Vector2D {
         }
     }
 
+    //Divides The Vector By A Scalar
     div(num) {
         let x = this.x/num;
         let y = this.y/num;
         return new Vector2D(x, y);
     }
 
+    //Returns The Module Of The Vector
     abs() {
         return Math.sqrt(this.x**2 + this.y**2);
     }
 
+    //Calculates The Distance Of Two Points
     dist(vector) {
         let vec = this.sub(vector);
         return vec.abs(vec);
     }
 
+    //Returns A Vector That Has The Same Direction As The Instance But Has Module 1
     norm() {
         return new Vector2D(this.x/this.abs(), this.y/this.abs());
     }
 
+    //Returns The Max Value Of A Vector, Max Value Specified By The Parameter
     max(num) {
         let x = num * this.x/this.abs();
         let y = num * this.y/this.abs();
@@ -115,11 +122,14 @@ class Vector2D {
 
 //Class Planet
 class Planet {
+    //Class Attributes
     static planets = [];
     static grav = 6.674e-11;
     static velCap = true;
     static velCapVal = 0.25;
+    static collisionSystem = false;
 
+    //Constructor Of The Class, Adds Planet To The Three Js Scene
     constructor(name, posX, posY, vel0X, vel0Y, mass, radius, color, still=false) {
         this.pos = new Vector2D(posX, posY);
 
@@ -154,6 +164,7 @@ class Planet {
         }
     }
 
+    //Calculates The Force And Velocity Of The Instance
     updateVelocity() {
         if (!this.still) {
             for (let i = 0; i < Planet.planets.length; ++i) {
@@ -170,6 +181,7 @@ class Planet {
         }
     }
 
+    //Updates The Position Of The Instance
     updatePosition() {
         if (!this.still) {
             this.pos = this.pos.add(this.vel);
@@ -177,6 +189,7 @@ class Planet {
         }
     }
 
+    //Remove The Planet Instance
     removePlanet() {
         scene.remove(scene.getObjectByName(this.name));
         for (let i = 0; i < Planet.planets.length; ++i) {
@@ -186,10 +199,11 @@ class Planet {
         }
     }
 
+    //Collision Detection Method (Resource Intensive)
     collisionDetection() {
         for (let i = 0; i < Planet.planets.length; ++i) {
             if (Planet.planets[i] != this) {
-                if (this.pos.sub(Planet.planets[i].pos).abs() < this.radius + Planet.planets[i].radius) {
+                if (this.pos.dist(Planet.planets[i].pos) < this.radius + Planet.planets[i].radius) {
                     if (this.mass < Planet.planets[i].mass) {
                         Planet.planets[i].mass += this.mass;
                         removePlanet(this);
@@ -231,7 +245,7 @@ var render = function() {
     for (let i=0; i < Planet.planets.length; ++i) {
         Planet.planets[i].updateVelocity();
         Planet.planets[i].updatePosition();
-        if (collisionSystem) {
+        if (Planet.collisionSystem) {
             Planet.planets[i].collisionDetection();
         }
     }

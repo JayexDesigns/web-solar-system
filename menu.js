@@ -1,3 +1,4 @@
+//Dropdown Of The Main Menu
 var dropButton = document.getElementById("dropdown");
 var menuDisplayed = false;
 
@@ -17,6 +18,7 @@ dropButton.addEventListener('click', () => {
 
 
 
+//Dropdown Of The Specific Menus
 var createButton = document.getElementById("createButton");
 var browseButton = document.getElementById("browseButton");
 
@@ -37,6 +39,7 @@ browseButton.addEventListener('click', () => {
 
 
 
+//Event And Functioning Of The Create Planet Menu
 var createPlanet = document.getElementById("createPlanet");
 
 createPlanet.addEventListener('click', () => {
@@ -85,6 +88,7 @@ createPlanet.addEventListener('click', () => {
 
 
 
+//Event And Functioning Of The Browse Planet Menu
 var actualPlanetList = [];
 
 function makePlanetList() {
@@ -113,6 +117,9 @@ function makePlanetList() {
     }
 }
 
+
+
+//Function That Removes A Planet From The Scene, The Instance And It's Name On The Browse List
 function removePlanet(planet) {
     for (let element of document.getElementById("browseMenu").childNodes) {
         if (element.firstChild.innerText == planet.name) {
@@ -126,7 +133,3 @@ function removePlanet(planet) {
     }
     planet.removePlanet();
 }
-
-
-
-var collisionSystem = false;
