@@ -55,7 +55,7 @@ const controller = {
         let randomNum = Math.random();
         let mass = randomNum*(10000000-100000)+100000;
         let radius = randomNum*(0.3-0.05)+0.05;
-        let color = Math.random() * (16777215-0)+0;
+        let color = Math.floor(Math.random() * (16777215-0)+0);
         let planet = new Planet(
             controller.randomName(Planet.planets),
             controller.pos0.x,

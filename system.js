@@ -160,7 +160,7 @@ class Planet {
             makePlanetList();
         }
         catch {
-            return;
+            return
         }
     }
 

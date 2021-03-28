@@ -100,6 +100,11 @@ function makePlanetList() {
 
             let planetName = document.createElement("p");
             planetName.innerText = planet.name;
+            let stringColor = planet.color.toString(16);
+            while (stringColor.length < 6) {
+                stringColor = `0${stringColor}`;
+            }
+            planetName.style.color = `#${stringColor}`;
             planetDiv.appendChild(planetName);
 
             let optionsDiv = document.createElement("div");
@@ -113,6 +118,16 @@ function makePlanetList() {
             planetDiv.appendChild(optionsDiv);
 
             browseMenu.appendChild(planetDiv);
+
+            let red = parseInt(stringColor.slice(0,2), 16);
+            let green = parseInt(stringColor.slice(2,4), 16);
+            let blue = parseInt(stringColor.slice(4,6), 16);
+            if ((red*0.299 + green*0.587 + blue*0.114) > 186) {
+                planetDiv.style.backgroundColor = "#1a1a1a";
+                planetDiv.style.boxShadow = "0 0 3vh #777777"
+                removeButton.style.color = "#ffffff";
+                removeButton.style.backgroundColor = "#1a1a1a";
+            }
         }
     }
 }
