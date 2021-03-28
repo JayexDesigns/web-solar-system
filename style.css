@@ -115,13 +115,14 @@ body {
     border-radius: 5vh;
     border: none;
     box-shadow: 0 0 2vh #bebebe;
-    font-size: 1.5vh;
+    font-size: 14px;
     padding: 0.5vh;
 }
 
 #createName input, #createMass input, #createRadius input, #createColor input {
     float: right;
     width: 20vh;
+    min-width: 165px;
     margin-left: 2.7vh;
 }
 
@@ -131,6 +132,7 @@ body {
 
 #createPosition input, #createVelocity input {
     width: 8vh;
+    min-width: 60px;
     margin-left: 2.5vh;
 }
 
@@ -143,7 +145,7 @@ body {
     display: inline-block;
     cursor: pointer;
     background-color: #ffffff;
-    font-size: 1.7vh;
+    font-size: 16px;
     border: none;
     padding: .9vh 1.2vh;
     border-radius: 3vh;
