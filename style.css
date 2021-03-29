@@ -229,19 +229,33 @@ body {
 }
 
 .planetOptions input, .planetOptions button {
-    font-size: 14px;
-    padding: 0.5vh;
     box-shadow: 0 0 2vh #bebebe;
     border: none;
     border-radius: 5vh;
-    width: 10vh;
     text-align: center;
     margin: 0 1vh;
     z-index: 0;
 }
 
-.planetOptions input::placeholder {
+.planetOptions input {
+    font-size: 14px;
+    padding: 0.5vh;
+    width: 10vh;
+}
+
+.planetOptions button {
+    font-size: 16px;
+    padding: 0.7vh;
+    width: 7vh;
+    background-color: #ffffff;
+}
+
+.lightInput::placeholder {
     color: #bebebe;
+}
+
+.darkInput::placeholder {
+    color: #666666;
 }
 
 

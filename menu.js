@@ -98,6 +98,7 @@ function makePlanetList() {
             actualPlanetList.push(planet.name);
             let planetDiv = document.createElement("div");
 
+
             let planetName = document.createElement("p");
             planetName.innerText = planet.name;
             let stringColor = planet.color.toString(16);
@@ -106,6 +107,7 @@ function makePlanetList() {
             }
             planetName.style.color = `#${stringColor}`;
             planetDiv.appendChild(planetName);
+
 
             let removeSection = document.createElement("div");
             removeSection.classList.add("removePlanet");
@@ -117,33 +119,48 @@ function makePlanetList() {
             removeSection.appendChild(removeButton);
             planetDiv.appendChild(removeSection);
 
+
             let optionsDiv = document.createElement("div");
             optionsDiv.classList.add("planetOptions");
             let positionDiv = document.createElement("div");
             let positionX = document.createElement("input");
             positionX.setAttribute("placeholder", "X Position");
+            positionX.classList.add("lightInput");
             let positionY = document.createElement("input");
             positionY.setAttribute("placeholder", "Y Position");
+            positionY.classList.add("lightInput");
             positionDiv.appendChild(positionX);
             positionDiv.appendChild(positionY);
+
             let velocityDiv = document.createElement("div");
             let velocityX = document.createElement("input");
             velocityX.setAttribute("placeholder", "X Velocity");
+            velocityX.classList.add("lightInput");
             let velocityY = document.createElement("input");
             velocityY.setAttribute("placeholder", "Y Velocity");
+            velocityY.classList.add("lightInput");
             velocityDiv.appendChild(velocityX);
             velocityDiv.appendChild(velocityY);
+
             let massOption = document.createElement("input");
             massOption.setAttribute("placeholder", "Mass");
+            massOption.classList.add("lightInput");
+
             let setButton = document.createElement("button");
             setButton.innerText = "Set";
+            setButton.addEventListener(() => {
+                return;
+            });
+
             optionsDiv.appendChild(positionDiv);
             optionsDiv.appendChild(velocityDiv);
             optionsDiv.appendChild(massOption);
             optionsDiv.appendChild(setButton);
             planetDiv.appendChild(optionsDiv);
 
+
             browseMenu.appendChild(planetDiv);
+
 
             let red = parseInt(stringColor.slice(0,2), 16);
             let green = parseInt(stringColor.slice(2,4), 16);
@@ -153,6 +170,29 @@ function makePlanetList() {
                 planetDiv.style.boxShadow = "0 0 3vh #777777"
                 removeButton.style.color = "#ffffff";
                 removeButton.style.backgroundColor = "#1a1a1a";
+                positionX.style.color = "#ffffff";
+                positionX.style.backgroundColor = "#1a1a1a";
+                positionX.style.boxShadow = "0 0 3vh #333333";
+                positionX.classList.add("darkInput");
+                positionY.style.color = "#ffffff";
+                positionY.style.backgroundColor = "#1a1a1a";
+                positionY.style.boxShadow = "0 0 3vh #333333";
+                positionY.classList.add("darkInput");
+                velocityX.style.color = "#ffffff";
+                velocityX.style.backgroundColor = "#1a1a1a";
+                velocityX.style.boxShadow = "0 0 3vh #333333";
+                velocityX.classList.add("darkInput");
+                velocityY.style.color = "#ffffff";
+                velocityY.style.backgroundColor = "#1a1a1a";
+                velocityY.style.boxShadow = "0 0 3vh #333333";
+                velocityY.classList.add("darkInput");
+                massOption.style.color = "#ffffff";
+                massOption.style.backgroundColor = "#1a1a1a";
+                massOption.style.boxShadow = "0 0 3vh #333333";
+                massOption.classList.add("darkInput");
+                setButton.style.color = "#ffffff";
+                setButton.style.backgroundColor = "#1a1a1a";
+                setButton.style.boxShadow = "0 0 3vh #333333";
             }
         }
     }
