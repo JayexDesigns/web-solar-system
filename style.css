@@ -211,6 +211,16 @@ body {
     transform: scale(1.15);
 }
 
+.planetOptions {
+    display: flex;
+    flex-direction: column;
+}
+
+.planetOptions > div {
+    display: flex;
+    flex-direction: row;
+}
+
 
 
 svg {

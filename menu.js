@@ -107,14 +107,32 @@ function makePlanetList() {
             planetName.style.color = `#${stringColor}`;
             planetDiv.appendChild(planetName);
 
-            let optionsDiv = document.createElement("div");
-            optionsDiv.classList.add("removePlanet");
+            let removeSection = document.createElement("div");
+            removeSection.classList.add("removePlanet");
             let removeButton = document.createElement("button");
             removeButton.innerText = "X";
             removeButton.addEventListener('click', () => {
                 removePlanet(planet);
             });
-            optionsDiv.appendChild(removeButton);
+            removeSection.appendChild(removeButton);
+            planetDiv.appendChild(removeSection);
+
+            let optionsDiv = document.createElement("div");
+            optionsDiv.classList.add("planetOptions");
+            let positionDiv = document.createElement("div");
+            let positionX = document.createElement("input");
+            let positionY = document.createElement("input");
+            positionDiv.appendChild(positionX);
+            positionDiv.appendChild(positionY);
+            let velocityDiv = document.createElement("div");
+            let velocityX = document.createElement("input");
+            let velocityY = document.createElement("input");
+            velocityDiv.appendChild(velocityX);
+            velocityDiv.appendChild(velocityY);
+            let massOption = document.createElement("input");
+            optionsDiv.appendChild(positionDiv);
+            optionsDiv.appendChild(velocityDiv);
+            optionsDiv.appendChild(massOption);
             planetDiv.appendChild(optionsDiv);
 
             browseMenu.appendChild(planetDiv);
