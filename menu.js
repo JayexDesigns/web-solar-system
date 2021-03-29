@@ -148,7 +148,7 @@ function makePlanetList() {
 
             let setButton = document.createElement("button");
             setButton.innerText = "Set";
-            setButton.addEventListener(() => {
+            setButton.addEventListener('click', () => {
                 return;
             });
 
