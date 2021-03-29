@@ -121,15 +121,20 @@ function makePlanetList() {
             optionsDiv.classList.add("planetOptions");
             let positionDiv = document.createElement("div");
             let positionX = document.createElement("input");
+            positionX.setAttribute("placeholder", "X Position")
             let positionY = document.createElement("input");
+            positionY.setAttribute("placeholder", "Y Position")
             positionDiv.appendChild(positionX);
             positionDiv.appendChild(positionY);
             let velocityDiv = document.createElement("div");
             let velocityX = document.createElement("input");
+            velocityX.setAttribute("placeholder", "X Velocity")
             let velocityY = document.createElement("input");
+            velocityY.setAttribute("placeholder", "Y Velocity")
             velocityDiv.appendChild(velocityX);
             velocityDiv.appendChild(velocityY);
             let massOption = document.createElement("input");
+            massOption.setAttribute("placeholder", "Mass")
             optionsDiv.appendChild(positionDiv);
             optionsDiv.appendChild(velocityDiv);
             optionsDiv.appendChild(massOption);
