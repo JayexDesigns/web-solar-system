@@ -5,11 +5,13 @@ const controller = {
     //Gives A Random Name Of The Names List
     randomName: (planets) => {
         let name = names[Math.floor(Math.random() * (names.length))];
+        let counter = 0;
 
         while (true) {
             let valid = true;
             for (planet of planets) {
                 if (planet.name == name) {
+                    ++counter;
                     valid = false;
                     break;
                 }
@@ -18,7 +20,7 @@ const controller = {
                 return name;
             }
             else {
-                name = names[Math.floor(Math.random() * (names.length))];
+                name = `${name.split(" ")[0]} ${counter}`;
             }
         }
     },
