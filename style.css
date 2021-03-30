@@ -287,6 +287,25 @@ body {
     margin-left: 2.7vh;
 }
 
+#generalMenu > section > input[type=checkbox] {
+    appearance: none;
+    -webkit-appearance: none;
+    margin: 0 9.5vh;
+    width: 2.1vh;
+    height: 2vh;
+    border: 0.35vh solid #ffffff;
+    border-radius: 5vh;
+    box-shadow: 0 0 2vh #bebebe;
+    background-color: #ffffff;
+    transition: background-color .15s ease-in-out;
+    -moz-transition: background-color .15s ease-in-out;
+    -webkit-transition: background-color .15s ease-in-out;
+}
+
+#generalMenu > section > input[type=checkbox]:checked {
+    background-color: #1a1a1a;
+}
+
 #applySettings {
     float: none;
     position: relative;
