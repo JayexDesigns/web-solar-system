@@ -53,12 +53,12 @@ var createPlanet = document.getElementById("createPlanet");
 
 createPlanet.addEventListener('click', () => {
     let name = document.getElementById("createName").childNodes[1].value;
-    let posX = ortCamera.position.x + parseInt(document.getElementById("createPosX").value);
-    let posY = ortCamera.position.z + parseInt(document.getElementById("createPosY").value);
-    let velX = parseInt(document.getElementById("createVelX").value) * 0.01;
-    let velY = parseInt(document.getElementById("createVelY").value) * 0.01;
-    let mass = parseInt(document.getElementById("createMass").childNodes[1].value) * 1000;
-    let radius = parseInt(document.getElementById("createRadius").childNodes[1].value) * 0.1;
+    let posX = ortCamera.position.x + parseFloat(document.getElementById("createPosX").value);
+    let posY = ortCamera.position.z + parseFloat(document.getElementById("createPosY").value);
+    let velX = parseFloat(document.getElementById("createVelX").value) * 0.01;
+    let velY = parseFloat(document.getElementById("createVelY").value) * 0.01;
+    let mass = parseFloat(document.getElementById("createMass").childNodes[1].value) * 1000;
+    let radius = parseFloat(document.getElementById("createRadius").childNodes[1].value) * 0.1;
     let color = parseInt(document.getElementById("createColor").childNodes[1].value, 16);
     if (name == "" || isNaN(posX) || isNaN(posY) || isNaN(velX) || isNaN(velY) || isNaN(mass) || isNaN(radius)) {
         document.getElementsByTagName("h1")[0].innerHTML = "You must fill<br>all fields";
@@ -159,31 +159,31 @@ function makePlanetList() {
             setButton.innerText = "Set";
             setButton.addEventListener('click', () => {
                 if (positionX.value != "") {
-                    posX = parseInt(positionX.value);
+                    posX = parseFloat(positionX.value);
                     if (!isNaN(posX)) {
                         planet.pos.x = ortCamera.position.x + posX;
                     }
                 }
                 if (positionY.value != "") {
-                    posY = parseInt(positionY.value);
+                    posY = parseFloat(positionY.value);
                     if (!isNaN(posY)) {
                         planet.pos.y = ortCamera.position.z + posY;
                     }
                 }
                 if (velocityX.value != "") {
-                    velX = parseInt(velocityX.value);
+                    velX = parseFloat(velocityX.value);
                     if (!isNaN(velX)) {
                         planet.vel.x = velX * 0.01;
                     }
                 }
                 if (velocityY.value != "") {
-                    velY = parseInt(velocityY.value);
+                    velY = parseFloat(velocityY.value);
                     if (!isNaN(velY)) {
                         planet.vel.y = velY * 0.01;
                     }
                 }
                 if (massOption.value != "") {
-                    mass = parseInt(massOption.value);
+                    mass = parseFloat(massOption.value);
                     if (!isNaN(mass)) {
                         planet.mass = mass * 1000;
                     }
@@ -235,6 +235,28 @@ function makePlanetList() {
         }
     }
 }
+
+
+
+//Event And Functioning Of The General Settings Menu
+var applySettings = document.getElementById("applySettings");
+
+applySettings.addEventListener('click', () => {
+    let generalMenu = document.getElementById("generalMenu");
+    let sections = generalMenu.getElementsByTagName("section");
+    let gravValue = parseFloat(sections[0].childNodes[1].value);
+    let velCap = sections[1].childNodes[1].checked;
+    let velCapValue = parseFloat(sections[2].childNodes[1].value);
+    let collSystem = sections[3].childNodes[1].checked;
+    if (!isNaN(gravValue)) {
+        Planet.grav = gravValue * 1e-11;
+    }
+    if (!isNaN(velCapValue)) {
+        Planet.velCapVal = velCapValue * 0.01;
+    }
+    Planet.velCap = velCap;
+    Planet.collisionSystem = collSystem;
+});
 
 
 
