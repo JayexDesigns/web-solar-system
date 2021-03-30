@@ -98,7 +98,7 @@ body {
 
 
 
-#createMenu, #browseMenu {
+#createMenu, #browseMenu, #generalMenu {
     position: absolute;
     top: -50%;
     left: 50%;
@@ -113,13 +113,13 @@ body {
     -webkit-transition: top 0.75s ease-in-out;
 }
 
-#createMenu > h1 {
+#createMenu > h1, #browseMenu > h1, #generalMenu > h1 {
     margin: 0 0 4vh 0;
     color: #1a1a1a;
 }
 
 #createMenu > section {
-    margin: 2vh 0 0 0;
+    margin-top: 2vh;
 }
 
 #createMenu > section > input, #createPosition > div > input, #createVelocity > div > input {
@@ -178,11 +178,6 @@ body {
     padding: 4vh 6vh;
     max-height: 70vh;
     overflow: auto;
-}
-
-#browseMenu > h1 {
-    margin: 0 0 4vh 0;
-    color: #1a1a1a;
 }
 
 #browseMenu > div {
@@ -268,6 +263,52 @@ body {
 
 .darkInput::placeholder {
     color: #666666;
+}
+
+
+
+#generalMenu > section {
+    margin-top: 2vh;
+}
+
+#generalMenu > section > input {
+    float: right;
+}
+
+#generalMenu > section > input[type=text] {
+    text-align: center;
+    border-radius: 5vh;
+    border: none;
+    box-shadow: 0 0 2vh #bebebe;
+    font-size: 14px;
+    padding: 0.5vh;
+    width: 20vh;
+    min-width: 165px;
+    margin-left: 2.7vh;
+}
+
+#applySettings {
+    float: none;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0) scale(1);
+    margin: 4vh 0 0 0;
+    display: inline-block;
+    cursor: pointer;
+    background-color: #ffffff;
+    font-size: 16px;
+    border: none;
+    padding: .9vh 1.2vh;
+    border-radius: 3vh;
+    transition: box-shadow .15s ease-in-out, transform .15s ease-in-out;
+    -moz-transition: box-shadow .15s ease-in-out, transform .15s ease-in-out;
+    -webkit-transition: box-shadow .15s ease-in-out, transform .15s ease-in-out;
+    box-shadow: 0 0 2vh #cacaca;
+}
+
+#applySettings:hover {
+    transform: translate(-50%, 0) scale(1.1);
+    box-shadow: 0 0 2vh #bebebe;
 }
 
 

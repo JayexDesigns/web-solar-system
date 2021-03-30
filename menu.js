@@ -8,6 +8,7 @@ dropButton.addEventListener('click', () => {
         menu.style.top = "-50%";
         document.getElementById("createMenu").style.top = "-50%";
         document.getElementById("browseMenu").style.top = "-50%";
+        document.getElementById("generalMenu").style.top = "-50%";
         menuDisplayed = false;
     }
     else if (!menuDisplayed) {
@@ -21,6 +22,7 @@ dropButton.addEventListener('click', () => {
 //Dropdown Of The Specific Menus
 var createButton = document.getElementById("createButton");
 var browseButton = document.getElementById("browseButton");
+var generalButton = document.getElementById("generalButton");
 
 createButton.addEventListener('click', () => {
     setTimeout(() => {
@@ -33,6 +35,13 @@ browseButton.addEventListener('click', () => {
     makePlanetList();
     setTimeout(() => {
         document.getElementById("browseMenu").style.top = "50%";
+    }, 150);
+    document.getElementById("menu").style.top = "-50%";
+});
+
+generalButton.addEventListener('click', () => {
+    setTimeout(() => {
+        document.getElementById("generalMenu").style.top = "50%";
     }, 150);
     document.getElementById("menu").style.top = "-50%";
 });

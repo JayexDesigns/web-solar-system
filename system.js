@@ -157,10 +157,12 @@ class Planet {
         scene.add(this.planet);
 
         try {
-            makePlanetList();
+            if (menuDisplayed) {
+                makePlanetList();
+            }
         }
         catch {
-            return
+            return;
         }
     }
 
