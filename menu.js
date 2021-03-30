@@ -256,6 +256,9 @@ applySettings.addEventListener('click', () => {
     }
     Planet.velCap = velCap;
     Planet.collisionSystem = collSystem;
+
+    document.getElementById("generalMenu").style.top = "-50%";
+    menuDisplayed = false;
 });
 
 
