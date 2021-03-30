@@ -152,31 +152,31 @@ function makePlanetList() {
                 if (positionX.value != "") {
                     posX = parseInt(positionX.value);
                     if (!isNaN(posX)) {
-                        planet.pos.x = posX;
+                        planet.pos.x = ortCamera.position.x + posX;
                     }
                 }
                 if (positionY.value != "") {
                     posY = parseInt(positionY.value);
                     if (!isNaN(posY)) {
-                        planet.pos.y = posY;
+                        planet.pos.y = ortCamera.position.z + posY;
                     }
                 }
                 if (velocityX.value != "") {
                     velX = parseInt(velocityX.value);
                     if (!isNaN(velX)) {
-                        planet.vel.x = velX;
+                        planet.vel.x = velX * 0.01;
                     }
                 }
                 if (velocityY.value != "") {
                     velY = parseInt(velocityY.value);
                     if (!isNaN(velY)) {
-                        planet.vel.y = velY;
+                        planet.vel.y = velY * 0.01;
                     }
                 }
                 if (massOption.value != "") {
                     mass = parseInt(massOption.value);
                     if (!isNaN(mass)) {
-                        planet.mass = mass;
+                        planet.mass = mass * 1000;
                     }
                 }
             });

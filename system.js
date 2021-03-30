@@ -206,19 +206,23 @@ class Planet {
                 if (this.pos.dist(Planet.planets[i].pos) < this.radius + Planet.planets[i].radius) {
                     if (this.mass < Planet.planets[i].mass) {
                         Planet.planets[i].mass += this.mass;
+                        console.log(`${Planet.planets[i].name} ate ${this.name}`);
                         removePlanet(this);
                     }
-                    else if (this.ass > Planet.planets[i].mass) {
+                    else if (this.mass > Planet.planets[i].mass) {
                         this.mass += Planet.planets[i].mass;
+                        console.log(`${this.name} ate ${Planet.planets[i].name}`);
                         removePlanet(Planet.planets[i]);
                     }
                     else {
                         if (Math.random >= 0.5) {
                             Planet.planets[i].mass += this.mass;
+                            console.log(`${Planet.planets[i].name} ate ${this.name}`);
                             removePlanet(this);
                         }
                         else {
                             this.mass += Planet.planets[i].mass;
+                            console.log(`${this.name} ate ${Planet.planets[i].name}`);
                             removePlanet(Planet.planets[i]);
                         }
                     }
