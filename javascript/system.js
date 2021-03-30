@@ -130,10 +130,10 @@ class Planet {
     static collisionSystem = false;
 
     //Constructor Of The Class, Adds Planet To The Three Js Scene
-    constructor(name, posX, posY, vel0X, vel0Y, mass, radius, color, still=false) {
+    constructor(name, posX, posY, vel0X, vel0Y, mass, radius, color, fixed=false) {
         this.pos = new Vector2D(posX, posY);
 
-        if (!still) {
+        if (!fixed) {
             this.vel0 = new Vector2D(vel0X, vel0Y);
             this.vel = this.vel0;
         }
@@ -143,7 +143,7 @@ class Planet {
         this.mass = mass;
         this.radius = radius;
         this.color = color;
-        this.still = still;
+        this.fixed = fixed;
 
         this.geometry = new THREE.SphereGeometry(this.radius, this.radius*100, this.radius*100);
         this.material = new THREE.MeshBasicMaterial({color:this.color, wireframe: false});
@@ -168,7 +168,7 @@ class Planet {
 
     //Calculates The Force And Velocity Of The Instance
     updateVelocity() {
-        if (!this.still) {
+        if (!this.fixed) {
             for (let i = 0; i < Planet.planets.length; ++i) {
                 if (Planet.planets[i] != this) {
                     let forceDir = (Planet.planets[i].pos.sub(this.pos)).norm();
@@ -185,7 +185,7 @@ class Planet {
 
     //Updates The Position Of The Instance
     updatePosition() {
-        if (!this.still) {
+        if (!this.fixed) {
             this.pos = this.pos.add(this.vel);
             this.planet.position.set(this.pos.x, 0, this.pos.y);
         }

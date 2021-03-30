@@ -148,6 +148,27 @@ body {
     margin-left: 2.5vh;
 }
 
+#createStatic > input, #createCameraFollow > input {
+    cursor: pointer;
+    float: right;
+    appearance: none;
+    -webkit-appearance: none;
+    margin: 0 9.5vh;
+    width: 1.6vh;
+    height: 1.5vh;
+    border: 0.35vh solid #ffffff !important;
+    border-radius: 5vh !important;
+    box-shadow: 0 0 2vh #bebebe !important;
+    background-color: #ffffff;
+    transition: background-color .15s ease-in-out;
+    -moz-transition: background-color .15s ease-in-out;
+    -webkit-transition: background-color .15s ease-in-out;
+}
+
+#createStatic > input:checked, #createCameraFollow > input:checked {
+    background-color: #1a1a1a;
+}
+
 #createPlanet {
     float: none;
     position: relative;
@@ -251,10 +272,19 @@ body {
 }
 
 .planetOptions button {
+    cursor: pointer;
     font-size: 16px;
     padding: 0.7vh;
     width: 7vh;
     background-color: #ffffff;
+    transform: scale(1);
+    transition: transform .05s ease-in-out;
+    -moz-transition: transform .05s ease-in-out;
+    -webkit-transition: transform .05s ease-in-out;
+}
+
+.planetOptions button:hover {
+    transform: scale(1.1);
 }
 
 .lightInput::placeholder {
@@ -288,6 +318,7 @@ body {
 }
 
 #generalMenu > section > input[type=checkbox] {
+    cursor: pointer;
     appearance: none;
     -webkit-appearance: none;
     margin: 0 9.5vh;
@@ -380,4 +411,9 @@ input::-webkit-inner-spin-button {
 
 input[type=number] {
     -moz-appearance: textfield;
+}
+
+/* Remove Outline When Buttons Or Inputs Are Selected */
+input:focus, button:focus {
+    outline: none;
 }
