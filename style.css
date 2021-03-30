@@ -45,10 +45,15 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
-    padding: 6vh 2vw;
+    flex-wrap: wrap;
+    max-height: 70vh;
+    max-width: 100vh;
+    width: 80%;
+    padding: 6vh 2vw 3vh 2vw;
     background-color: #ffffff;
     border-radius: 5vh;
     z-index: 2;
+    overflow: auto;
     justify-content: center;
     align-items: center;
     transition: top 0.75s ease-in-out;
@@ -58,8 +63,10 @@ body {
 
 #menu > div {
     transform: scale(1);
-    margin: 0 3vh;
-    padding: 3vh;
+    margin: 0 3vh 3vh 3vh;
+    padding: 0 3vh 3vh 3vh;
+    width: 20vh;
+    height: 25vh;
     cursor: pointer;
     border-radius: 2vh;
     background-color: #ffffff;
@@ -77,11 +84,16 @@ body {
 #menu p {
     text-align: center;
     font-weight: 700;
-    font-size: 3vh;
+    font-size: 2.7vh;
 }
 
 #menu img {
-    width: 20vw;
+    position: absolute;
+    display: block;
+    left: 50%;
+    bottom: 5%;
+    transform: translate(-50%, 0);
+    width: 15vh;
 }
 
 
