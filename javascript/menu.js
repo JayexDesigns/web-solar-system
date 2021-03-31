@@ -157,6 +157,25 @@ function makePlanetList() {
             massOption.setAttribute("placeholder", "Mass");
             massOption.classList.add("lightInput");
 
+            let otherOptions = document.createElement("div");
+            let fixedLabel = document.createElement("label");
+            fixedLabel.innerText = "Static";
+            let fixedCheckbox = document.createElement("input");
+            fixedCheckbox.type = "checkbox";
+            if (planet.fixed) {fixedCheckbox.checked = true}
+            else {fixedCheckbox.checked = false}
+            fixedLabel.appendChild(fixedCheckbox);
+            
+            let followedLabel = document.createElement("label");
+            followedLabel.innerText = "Followed";
+            let followedCheckbox = document.createElement("input");
+            followedCheckbox.type = "checkbox";
+            if (planet.followed) {followedCheckbox.checked = true}
+            else {followedCheckbox.checked = false}
+            followedLabel.appendChild(followedCheckbox);
+            otherOptions.appendChild(fixedLabel);
+            otherOptions.appendChild(followedLabel);
+
             let setButton = document.createElement("button");
             setButton.innerText = "Set";
             setButton.addEventListener('click', () => {
@@ -190,11 +209,20 @@ function makePlanetList() {
                         planet.mass = mass * 1000;
                     }
                 }
+                planet.fixed = fixedCheckbox.checked;
+                if (followedCheckbox.checked) {
+                    planet.followed = true;
+                    if (Planet.currentFollowed != undefined) {
+                        Planet.currentFollowed.followed = false;
+                    }
+                    Planet.currentFollowed = planet;
+                }
             });
 
             optionsDiv.appendChild(positionDiv);
             optionsDiv.appendChild(velocityDiv);
             optionsDiv.appendChild(massOption);
+            optionsDiv.appendChild(otherOptions);
             optionsDiv.appendChild(setButton);
             planetDiv.appendChild(optionsDiv);
 

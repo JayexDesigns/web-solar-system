@@ -148,10 +148,8 @@ class Planet {
         this.followed = followed;
 
         if (this.followed) {
-            for (let planet of Planet.planets) {
-                if (planet.followed) {
-                    planet.followed = false;
-                }
+            if (Planet.currentFollowed != undefined) {
+                Planet.currentFollowed.followed = false;
             }
             Planet.currentFollowed = this;
         }
@@ -248,7 +246,7 @@ class Planet {
 
 
 //Default Planets
-var sun = new Planet("Sun", 0, 0, 0, 0, 100000000, 1, 0xffb300, true);
+var sun = new Planet("Sun", 0, 0, 0, 0, 100000000, 1, 0xffb300, true, true);
 var venus = new Planet ("Venus", -4, 0, 0, 0.08, 1000000, 0.1, 0x00ffa6);
 var earth = new Planet ("Earth", -6, 0, 0, 0.085, 1000000, 0.1, 0x00ccff);
 var mars = new Planet ("Mars", -8, 0, 0, 0.087, 1000000, 0.1, 0xf44336);
