@@ -134,10 +134,8 @@ class Planet {
     constructor(name, posX, posY, vel0X, vel0Y, mass, radius, color, fixed=false, followed=false) {
         this.pos = new Vector2D(posX, posY);
 
-        if (!fixed) {
-            this.vel0 = new Vector2D(vel0X, vel0Y);
-            this.vel = this.vel0;
-        }
+        this.vel0 = new Vector2D(vel0X, vel0Y);
+        this.vel = this.vel0;
 
         this.name = name;
 

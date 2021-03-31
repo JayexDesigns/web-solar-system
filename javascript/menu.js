@@ -224,6 +224,12 @@ function makePlanetList() {
                     }
                     Planet.currentFollowed = planet;
                 }
+                else {
+                    if (Planet.currentFollowed == planet) {
+                        Planet.currentFollowed = undefined;
+                        planet.followed = false;
+                    }
+                }
             });
 
             optionsDiv.appendChild(positionDiv);
