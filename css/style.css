@@ -256,7 +256,7 @@ body {
     flex-direction: row;
 }
 
-.planetOptions input, .planetOptions button {
+.planetOptions input[type=text], .planetOptions button {
     box-shadow: 0 0 2vh #bebebe;
     border: none;
     border-radius: 5vh;
@@ -265,10 +265,37 @@ body {
     z-index: 0;
 }
 
-.planetOptions input {
+.planetOptions input[type=text] {
     font-size: 14px;
     padding: 0.5vh;
     width: 10vh;
+}
+
+.planetOptions label {
+    position: relative;
+    margin: 0 2vh;
+}
+
+.planetOptions input[type=checkbox] {
+    position: absolute;
+    bottom: 0;
+    margin-left: 0.75vh;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    width: 1.5vh;
+    height: 1.5vh;
+    border: 0.35vh solid #ffffff;
+    border-radius: 5vh;
+    box-shadow: 0 0 1vh #bebebe;
+    background-color: #ffffff;
+    transition: background-color .15s ease-in-out;
+    -moz-transition: background-color .15s ease-in-out;
+    -webkit-transition: background-color .15s ease-in-out;
+}
+
+.planetOptions input[type=checkbox]:checked {
+    background-color: #1a1a1a;
 }
 
 .planetOptions button {
@@ -287,12 +314,16 @@ body {
     transform: scale(1.1);
 }
 
-.lightInput::placeholder {
+.lightInput[type=text]::placeholder {
     color: #bebebe;
 }
 
-.darkInput::placeholder {
+.darkInput[type=text]::placeholder {
     color: #666666;
+}
+
+.darkInput[type=checkbox]:checked {
+    background-color: #ffffff !important;
 }
 
 

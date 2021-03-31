@@ -135,9 +135,11 @@ function makePlanetList() {
             optionsDiv.classList.add("planetOptions");
             let positionDiv = document.createElement("div");
             let positionX = document.createElement("input");
+            positionX.type = "text";
             positionX.setAttribute("placeholder", "X Position");
             positionX.classList.add("lightInput");
             let positionY = document.createElement("input");
+            positionY.type = "text";
             positionY.setAttribute("placeholder", "Y Position");
             positionY.classList.add("lightInput");
             positionDiv.appendChild(positionX);
@@ -145,15 +147,18 @@ function makePlanetList() {
 
             let velocityDiv = document.createElement("div");
             let velocityX = document.createElement("input");
+            velocityX.type = "text";
             velocityX.setAttribute("placeholder", "X Velocity");
             velocityX.classList.add("lightInput");
             let velocityY = document.createElement("input");
+            velocityY.type = "text";
             velocityY.setAttribute("placeholder", "Y Velocity");
             velocityY.classList.add("lightInput");
             velocityDiv.appendChild(velocityX);
             velocityDiv.appendChild(velocityY);
 
             let massOption = document.createElement("input");
+            massOption.type = "text";
             massOption.setAttribute("placeholder", "Mass");
             massOption.classList.add("lightInput");
 
@@ -162,6 +167,7 @@ function makePlanetList() {
             fixedLabel.innerText = "Static";
             let fixedCheckbox = document.createElement("input");
             fixedCheckbox.type = "checkbox";
+            fixedCheckbox.classList.add("lightInput");
             if (planet.fixed) {fixedCheckbox.checked = true}
             else {fixedCheckbox.checked = false}
             fixedLabel.appendChild(fixedCheckbox);
@@ -170,6 +176,7 @@ function makePlanetList() {
             followedLabel.innerText = "Followed";
             let followedCheckbox = document.createElement("input");
             followedCheckbox.type = "checkbox";
+            followedCheckbox.classList.add("lightInput");
             if (planet.followed) {followedCheckbox.checked = true}
             else {followedCheckbox.checked = false}
             followedLabel.appendChild(followedCheckbox);
@@ -235,9 +242,11 @@ function makePlanetList() {
             let blue = parseInt(stringColor.slice(4,6), 16);
             if ((red*0.299 + green*0.587 + blue*0.114) > 186) {
                 planetDiv.style.backgroundColor = "#1a1a1a";
-                planetDiv.style.boxShadow = "0 0 3vh #777777"
+                planetDiv.style.boxShadow = "0 0 3vh #777777";
+
                 removeButton.style.color = "#ffffff";
                 removeButton.style.backgroundColor = "#1a1a1a";
+
                 positionX.style.color = "#ffffff";
                 positionX.style.backgroundColor = "#1a1a1a";
                 positionX.style.boxShadow = "0 0 3vh #333333";
@@ -246,6 +255,7 @@ function makePlanetList() {
                 positionY.style.backgroundColor = "#1a1a1a";
                 positionY.style.boxShadow = "0 0 3vh #333333";
                 positionY.classList.add("darkInput");
+
                 velocityX.style.color = "#ffffff";
                 velocityX.style.backgroundColor = "#1a1a1a";
                 velocityX.style.boxShadow = "0 0 3vh #333333";
@@ -254,10 +264,24 @@ function makePlanetList() {
                 velocityY.style.backgroundColor = "#1a1a1a";
                 velocityY.style.boxShadow = "0 0 3vh #333333";
                 velocityY.classList.add("darkInput");
+
                 massOption.style.color = "#ffffff";
                 massOption.style.backgroundColor = "#1a1a1a";
                 massOption.style.boxShadow = "0 0 3vh #333333";
                 massOption.classList.add("darkInput");
+
+                fixedLabel.style.color = "#ffffff";
+                fixedCheckbox.style.boxShadow = "0 0 1vh #888888";
+                fixedCheckbox.style.backgroundColor = "#1a1a1a";
+                fixedCheckbox.style.borderColor = "#1a1a1a";
+                fixedCheckbox.classList.add("darkInput");
+                
+                followedLabel.style.color = "#ffffff";
+                followedCheckbox.style.boxShadow = "0 0 1vh #888888";
+                followedCheckbox.style.backgroundColor = "#1a1a1a";
+                followedCheckbox.style.borderColor = "#1a1a1a";
+                followedCheckbox.classList.add("darkInput");
+
                 setButton.style.color = "#ffffff";
                 setButton.style.backgroundColor = "#1a1a1a";
                 setButton.style.boxShadow = "0 0 3vh #333333";
