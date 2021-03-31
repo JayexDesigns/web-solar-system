@@ -60,6 +60,8 @@ createPlanet.addEventListener('click', () => {
     let mass = parseFloat(document.getElementById("createMass").childNodes[1].value) * 1000;
     let radius = parseFloat(document.getElementById("createRadius").childNodes[1].value) * 0.1;
     let color = parseInt(document.getElementById("createColor").childNodes[1].value, 16);
+    let fixed = document.getElementById("createStatic").childNodes[1].checked;
+    let followed = document.getElementById("createCameraFollow").childNodes[1].checked;
     if (name == "" || isNaN(posX) || isNaN(posY) || isNaN(velX) || isNaN(velY) || isNaN(mass) || isNaN(radius)) {
         document.getElementsByTagName("h1")[0].innerHTML = "You must fill<br>all fields";
         setTimeout(() => {
@@ -91,7 +93,7 @@ createPlanet.addEventListener('click', () => {
         document.getElementById("createName").childNodes[1].value = "";
         document.getElementById("createMenu").style.top = "-50%";
         menuDisplayed = false;
-        let planet = new Planet(name, posX, posY, velX, velY, mass, radius, color);
+        let planet = new Planet(name, posX, posY, velX, velY, mass, radius, color, fixed, followed);
     }
 });
 
@@ -103,7 +105,7 @@ var actualPlanetList = [];
 function makePlanetList() {
     let browseMenu = document.getElementById("browseMenu");
     for (let planet of Planet.planets) {
-        if (planet.name != "Sun" && !actualPlanetList.includes(planet.name)) {
+        if (!actualPlanetList.includes(planet.name)) {
             actualPlanetList.push(planet.name);
             let planetDiv = document.createElement("div");
 
@@ -274,6 +276,9 @@ function removePlanet(planet) {
         if (planet.name == actualPlanetList[name]) {
             actualPlanetList.splice(name, 1);
         }
+    }
+    if (planet.followed) {
+        Planet.currentFollowed = undefined;
     }
     planet.removePlanet();
 }

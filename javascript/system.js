@@ -128,9 +128,10 @@ class Planet {
     static velCap = true;
     static velCapVal = 0.25;
     static collisionSystem = false;
+    static currentFollowed;
 
     //Constructor Of The Class, Adds Planet To The Three Js Scene
-    constructor(name, posX, posY, vel0X, vel0Y, mass, radius, color, fixed=false) {
+    constructor(name, posX, posY, vel0X, vel0Y, mass, radius, color, fixed=false, followed=false) {
         this.pos = new Vector2D(posX, posY);
 
         if (!fixed) {
@@ -144,6 +145,16 @@ class Planet {
         this.radius = radius;
         this.color = color;
         this.fixed = fixed;
+        this.followed = followed;
+
+        if (this.followed) {
+            for (let planet of Planet.planets) {
+                if (planet.followed) {
+                    planet.followed = false;
+                }
+            }
+            Planet.currentFollowed = this;
+        }
 
         this.geometry = new THREE.SphereGeometry(this.radius, this.radius*100, this.radius*100);
         this.material = new THREE.MeshBasicMaterial({color:this.color, wireframe: false});
@@ -237,7 +248,7 @@ class Planet {
 
 
 //Default Planets
-var sun = new Planet("Sun", 0, 0, 0, 0, 100000000, 1, 0xffb300);
+var sun = new Planet("Sun", 0, 0, 0, 0, 100000000, 1, 0xffb300, true);
 var venus = new Planet ("Venus", -4, 0, 0, 0.08, 1000000, 0.1, 0x00ffa6);
 var earth = new Planet ("Earth", -6, 0, 0, 0.085, 1000000, 0.1, 0x00ccff);
 var mars = new Planet ("Mars", -8, 0, 0, 0.087, 1000000, 0.1, 0xf44336);
@@ -255,8 +266,10 @@ var render = function() {
             Planet.planets[i].collisionDetection();
         }
     }
-    
-    ortCamera.position.set(sun.pos.x, 15, sun.pos.y);
+
+    if (Planet.currentFollowed != undefined) {
+        ortCamera.position.set(Planet.currentFollowed.pos.x, 15, Planet.currentFollowed.pos.y);
+    }
 
     renderer.render(scene, ortCamera);
 }
