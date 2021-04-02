@@ -5,7 +5,7 @@
 <h2>Usage</h2>
 <p>When you enter the webpage that is linked below you will see an arrow on the top of the page, when clicked a menu with three buttons will drop.
 <br/><br/>
-The first one will allow you to create planets by setting it's name, initial position, initial velocity, mass, radius, color, if you want it to move and if you want it to be followed by the camera, keep in mind that two planets can't have the same name and the color has to be a valid hexadecimal color.
+The first one will allow you to create planets by setting its name, initial position, initial velocity, mass, radius, color, if you want it to move and if you want it to be followed by the camera, keep in mind that two planets can't have the same name and the color has to be a valid hexadecimal color.
 <br/><br/>
 The second one will display a list of the current planet names, a cross in case you want to delete them and some properties that you can change.
 <br/><br/>
