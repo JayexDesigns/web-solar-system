@@ -14,4 +14,3 @@ The third and last one allows you to change some system properties such as the g
 Also if you are trying this on a computer you will be able to click wherever you want to spawn a planet and drag your cursor to set it's initial velocity, a random planet with a random name will appear at the moment you release your click.</p>
 <br/>
 <h2 align="center"><a href="https://jayexdesigns.github.io/web-solar-system/">TRY IT!</a></h2>
-<h3 align="center"><img src='https://raw.githubusercontent.com/JayexDesigns/web-solar-system/main/preview.png' width='15%'></h3>
