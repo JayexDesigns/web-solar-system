@@ -1,4 +1,4 @@
-<h3 align="center"><img src='https://github.com/JayexDesigns/web-solar-system/blob/main/img/favicon.png' width='15%'></h3>
+<h3 align="center"><img src='https://raw.githubusercontent.com/JayexDesigns/web-solar-system/main/img/favicon.png' width='15%'></h3>
 <h1 align="center">Web Solar System</h1>
 <p align="center">In this simulation you will be able to see what would happen in different scenarios that you can choose in terms of orbits and planets.</p>
 <br/>
