@@ -28,15 +28,29 @@ const controller = {
     //When The User Clicks Sets The First Position
     firstPoint: (event) => {
         event.preventDefault();
-        controller.pos0.x = ((event.clientX/window.innerWidth) * (window.innerWidth/90) * 2 - window.innerWidth/90);
-        controller.pos0.y = ((event.clientY/window.innerHeight) * (window.innerHeight/90) * 2 - window.innerHeight/90);
+        if (event.changedTouches) {
+            controller.pos0.x = ((event.changedTouches[0].clientX/window.innerWidth) * (window.innerWidth/90) * 2 - window.innerWidth/90);
+            controller.pos0.y = ((event.changedTouches[0].clientY/window.innerHeight) * (window.innerHeight/90) * 2 - window.innerHeight/90);
+        }
+        else {
+            controller.pos0.x = ((event.clientX/window.innerWidth) * (window.innerWidth/90) * 2 - window.innerWidth/90);
+            controller.pos0.y = ((event.clientY/window.innerHeight) * (window.innerHeight/90) * 2 - window.innerHeight/90);
+        }
     },
 
     //When The User Releases The Click Sets The Second Point And Calculates The Velocity
     secondPoint: (event) => {
         event.preventDefault();
-        let x = ortCamera.position.x + ((event.clientX/window.innerWidth) * (window.innerWidth/90) * 2 - window.innerWidth/90);
-        let y = ortCamera.position.z + ((event.clientY/window.innerHeight) * (window.innerHeight/90) * 2 - window.innerHeight/90);
+        let x, y;
+        if (event.changedTouches) {
+            x = ortCamera.position.x + ((event.changedTouches[0].clientX/window.innerWidth) * (window.innerWidth/90) * 2 - window.innerWidth/90);
+            y = ortCamera.position.z + ((event.changedTouches[0].clientY/window.innerHeight) * (window.innerHeight/90) * 2 - window.innerHeight/90);
+        }
+        else {
+            x = ortCamera.position.x + ((event.clientX/window.innerWidth) * (window.innerWidth/90) * 2 - window.innerWidth/90);
+            y = ortCamera.position.z + ((event.clientY/window.innerHeight) * (window.innerHeight/90) * 2 - window.innerHeight/90);
+        }
+
         if (x == controller.pos0.x && y == controller.pos0.y) {
             controller.vel0.x = 0;
             controller.vel0.y = 0;
@@ -72,3 +86,7 @@ const controller = {
 
 document.getElementsByTagName("canvas")[0].addEventListener('mousedown', controller.firstPoint);
 document.getElementsByTagName("canvas")[0].addEventListener('mouseup', controller.secondPoint);
+// document.getElementsByTagName("canvas")[0].addEventListener('touchstart', (e) => console.log(e));
+// document.getElementsByTagName("canvas")[0].addEventListener('touchend', (e) => console.log(e));
+document.getElementsByTagName("canvas")[0].addEventListener('touchstart', controller.firstPoint);
+document.getElementsByTagName("canvas")[0].addEventListener('touchend', controller.secondPoint);

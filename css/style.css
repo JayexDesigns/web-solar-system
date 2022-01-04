@@ -3,6 +3,7 @@ body {
     margin: 0;
     height: 100vh;
     background-color: #09061b;
+    overflow: hidden;
 }
 
 
