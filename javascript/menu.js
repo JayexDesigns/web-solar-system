@@ -1,4 +1,4 @@
-//Dropdown Of The Main Menu
+// Dropdown Of The Main Menu
 var dropButton = document.getElementById("dropdown");
 var menuDisplayed = false;
 
@@ -19,7 +19,7 @@ dropButton.addEventListener('click', () => {
 
 
 
-//Dropdown Of The Specific Menus
+// Dropdown Of The Specific Menus
 var createButton = document.getElementById("createButton");
 var browseButton = document.getElementById("browseButton");
 var generalButton = document.getElementById("generalButton");
@@ -48,7 +48,7 @@ generalButton.addEventListener('click', () => {
 
 
 
-//Event And Functioning Of The Create Planet Menu
+// Event And Functioning Of The Create Planet Menu
 var createPlanet = document.getElementById("createPlanet");
 
 createPlanet.addEventListener('click', () => {
@@ -99,7 +99,7 @@ createPlanet.addEventListener('click', () => {
 
 
 
-//Event And Functioning Of The Browse Planet Menu
+// Event And Functioning Of The Browse Planet Menu
 var actualPlanetList = [];
 
 function makePlanetList() {
@@ -298,7 +298,7 @@ function makePlanetList() {
 
 
 
-//Event And Functioning Of The General Settings Menu
+// Event And Functioning Of The General Settings Menu
 var applySettings = document.getElementById("applySettings");
 
 applySettings.addEventListener('click', () => {
@@ -323,7 +323,7 @@ applySettings.addEventListener('click', () => {
 
 
 
-//Function That Removes A Planet From The Scene, The Instance And It's Name On The Browse List
+// Function That Removes A Planet From The Scene, The Instance And It's Name On The Browse List
 function removePlanet(planet) {
     for (let element of document.getElementById("browseMenu").childNodes) {
         if (element.firstChild.innerText == planet.name) {

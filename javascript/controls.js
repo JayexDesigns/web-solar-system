@@ -2,7 +2,7 @@ const controller = {
     pos0: new Vector2D(0, 0),
     vel0: new Vector2D(0, 0),
 
-    //Gives A Random Name Of The Names List
+    // Gives A Random Name Of The Names List
     randomName: (planets) => {
         let name = names[Math.floor(Math.random() * (names.length))];
         let counter = 0;
@@ -25,7 +25,7 @@ const controller = {
         }
     },
 
-    //When The User Clicks Sets The First Position
+    // When The User Clicks Sets The First Position
     firstPoint: (event) => {
         event.preventDefault();
         if (event.changedTouches) {
@@ -38,7 +38,7 @@ const controller = {
         }
     },
 
-    //When The User Releases The Click Sets The Second Point And Calculates The Velocity
+    // When The User Releases The Click Sets The Second Point And Calculates The Velocity
     secondPoint: (event) => {
         event.preventDefault();
         let x, y;
@@ -66,7 +66,7 @@ const controller = {
         }
     },
 
-    //Creates A Planet With Random Attributes (Not Including The Position And Velocity, Those Are Specified By The User)
+    // Creates A Planet With Random Attributes (Not Including The Position And Velocity, Those Are Specified By The User)
     createPlanet: () => {
         let randomNum = Math.random();
         let mass = randomNum*(10000000-100000)+100000;
@@ -84,9 +84,8 @@ const controller = {
 
 
 
+// Event Listeners
 document.getElementsByTagName("canvas")[0].addEventListener('mousedown', controller.firstPoint);
 document.getElementsByTagName("canvas")[0].addEventListener('mouseup', controller.secondPoint);
-// document.getElementsByTagName("canvas")[0].addEventListener('touchstart', (e) => console.log(e));
-// document.getElementsByTagName("canvas")[0].addEventListener('touchend', (e) => console.log(e));
 document.getElementsByTagName("canvas")[0].addEventListener('touchstart', controller.firstPoint);
 document.getElementsByTagName("canvas")[0].addEventListener('touchend', controller.secondPoint);

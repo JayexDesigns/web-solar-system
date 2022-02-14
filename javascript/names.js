@@ -404,7 +404,7 @@ const names = [
     'Zephyrus',
     'Zeus',
 
-    //Custom
+    // Custom
 
     'Niobio',
     'Diana',
